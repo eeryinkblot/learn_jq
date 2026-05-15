@@ -165,7 +165,7 @@ class Renderer:
         safe_addstr(self.stdscr, status_row, 0, truncate(status, cols), attr)
 
         help_row = rows - 1
-        keys = "[Enter] run  [n] next  [p] prev  [h] hint  [s] reveal  [r] reset  [j/k] scroll  [q] quit"
+        keys = "[Enter] run  [Tab] next  [Shift+Tab/F3] prev  [F1] hint  [F2] reveal  [Ctrl+U] reset  [PgUp/PgDn] scroll  [Esc] quit"
         safe_addstr(self.stdscr, help_row, 0, truncate(keys, cols), curses.A_REVERSE)
 
         cur_screen_x = len(prompt) + (editor_cursor - scroll_x)

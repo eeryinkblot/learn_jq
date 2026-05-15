@@ -22,8 +22,9 @@ STAGE = Stage(
             id="1.2",
             title="Field access",
             description=(
-                "Use `.fieldname` to extract a field from an object. The result is "
-                "the value of that field."
+                "Use `.fieldname` to extract a field from an object. The result "
+                "is the value of that field. Extract the `name` field from the "
+                "input — the expected output is the string \"ada\"."
             ),
             input_json='{"name": "ada", "age": 36}',
             expected_outputs=('"ada"',),

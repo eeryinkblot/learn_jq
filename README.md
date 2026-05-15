@@ -19,16 +19,16 @@ python3 -m learn_jq
 
 ### Keys
 
-| Action | How |
+| Action | Key |
 |---|---|
 | Run the filter you typed | `Enter` |
-| Next lesson (once current passes) | type `n` then `Enter` |
-| Previous lesson | type `p` then `Enter` |
-| Toggle hint | type `h` then `Enter` |
-| Reveal expected output | type `s` then `Enter` |
-| Reset the filter buffer | type `r` then `Enter` |
-| Scroll output | type `j` / `k` then `Enter` |
-| Quit | type `q` then `Enter`, or `Ctrl+C` |
+| Next lesson (once current passes) | `Tab` (or `Enter` on an empty filter) |
+| Previous lesson | `Shift+Tab` or `F3` |
+| Toggle hint | `F1` |
+| Reveal expected output | `F2` |
+| Reset the filter buffer | `Ctrl+U` |
+| Scroll output up / down | `PgUp` / `PgDn` |
+| Quit | `Esc` or `Ctrl+C` |
 
 ### How a lesson works
 
@@ -66,4 +66,13 @@ learn_jq/
 tests/               pytest suite
 ```
 
-Progress is currently in-memory only. A file-backed `Progress` implementation can be added without changing `app.py`.
+## Progress
+
+By default, lesson progress is persisted to `$XDG_DATA_HOME/learn_jq/progress.json` (falls back to `~/.local/share/learn_jq/progress.json`). On launch the course resumes at the first unsolved lesson.
+
+```sh
+python3 -m learn_jq                              # default: persist to disk
+python3 -m learn_jq --in-memory                  # do not save anything
+python3 -m learn_jq --progress-file ./my.json    # custom location
+python3 -m learn_jq --reset                      # wipe saved progress and start over
+```
